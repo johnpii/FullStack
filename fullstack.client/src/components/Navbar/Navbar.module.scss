@@ -1,0 +1,53 @@
+.navbar { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Градиент для фона */
+    padding: 15px 30px; /* Увеличенные отступы для более просторного вида */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень для добавления глубины */
+    overflow: hidden; /* Скрывает все элементы, выходящие за пределы navbar */
+    box-sizing: border-box; /* Учитывает padding и border в общую ширину */
+
+    .navbar-left, .navbar-right {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-item {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 20px;
+        font-size: 18px; /* Чуть больший размер шрифта для лучшей читаемости */
+        font-weight: 500; /* Умеренная жирность текста */
+        transition: color 0.3s ease, transform 0.3s ease; /* Добавление анимации для трансформации */
+
+        &:hover {
+            color: #1e90ff;
+            transform: scale(1.1); /* Легкое увеличение при наведении */
+        }
+
+        &:active {
+            color: #ff4500;
+        }
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px; /* Увеличены отступы на мобильных устройствах */
+        .navbar-left, .navbar-right {
+            width: 100%;
+            justify-content: flex-start;
+            margin-bottom: 10px;
+        }
+        .navbar-item {
+            margin: 12px 0;
+            font-size: 16px; /* Чуть меньший размер шрифта на мобильных устройствах */
+        }
+    }
+}

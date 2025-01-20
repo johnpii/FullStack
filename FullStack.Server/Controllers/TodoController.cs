@@ -16,7 +16,7 @@ namespace FullStack.Server.Controllers
         }
 
         [HttpGet("GetTodos")]
-        public async Task<List<Todo>> GetTodos() 
+        public async Task<List<Todo>> GetTodos()
         {
             return await _todoService.GetTodos();
         }
