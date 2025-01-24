@@ -1,53 +1,109 @@
-.navbar { 
+.navbar {  
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Градиент для фона */
-    padding: 15px 30px; /* Увеличенные отступы для более просторного вида */
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень для добавления глубины */
-    overflow: hidden; /* Скрывает все элементы, выходящие за пределы navbar */
-    box-sizing: border-box; /* Учитывает padding и border в общую ширину */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    box-sizing: border-box;
+}
 
-    .navbar-left, .navbar-right {
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.navbar-item {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-item:hover {
+    color: #1e90ff;
+    transform: scale(1.1);
+}
+
+.navbar-item:active {
+    color: #ff4500;
+}
+
+.burger-icon {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 25px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1100;
+}
+
+.burger-icon span {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .navbar-left {
+        width: 100%;
+        justify-content: flex-start;
+        margin-bottom: 10px;
+    }
+
+    .navbar-right {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-right.open {
         display: flex;
-        align-items: center;
+    }
+
+    .burger-icon {
+        display: flex;
     }
 
     .navbar-item {
-        color: #fff;
-        text-decoration: none;
-        margin: 0 20px;
-        font-size: 18px; /* Чуть больший размер шрифта для лучшей читаемости */
-        font-weight: 500; /* Умеренная жирность текста */
-        transition: color 0.3s ease, transform 0.3s ease; /* Добавление анимации для трансформации */
-
-        &:hover {
-            color: #1e90ff;
-            transform: scale(1.1); /* Легкое увеличение при наведении */
-        }
-
-        &:active {
-            color: #ff4500;
-        }
+        margin: 12px 0;
+        font-size: 16px;
+        padding: 6px 0;
+        width: 100%;
+        text-align: left;
     }
+}
 
-    @media (max-width: 768px) {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px; /* Увеличены отступы на мобильных устройствах */
-        .navbar-left, .navbar-right {
-            width: 100%;
-            justify-content: flex-start;
-            margin-bottom: 10px;
-        }
-        .navbar-item {
-            margin: 12px 0;
-            font-size: 16px; /* Чуть меньший размер шрифта на мобильных устройствах */
-        }
+@media (max-width: 480px) {
+    .navbar-item {
+        font-size: 14px;
+        margin: 8px 0;
     }
 }
