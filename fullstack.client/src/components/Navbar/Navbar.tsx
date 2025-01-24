@@ -9,7 +9,8 @@ const Navbar: React.FC = () => {
             </div>
             <div className={styles['navbar-right']}>
                 <Link to="/login" className={styles['navbar-item']}>Вход</Link>
-                <Link to="/register" className={styles['navbar-item']}>Регистрация</Link>
+                <Link to="/regist" className={styles['navbar-item']}>Регистрация</Link>
+                <Link to="/logout" className={styles['navbar-item']}>Выход</Link>
             </div>
         </nav>
     );
