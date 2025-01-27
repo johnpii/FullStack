@@ -1,5 +1,6 @@
+import React from 'react';
 import Todo from '../../types/Todo';
-import './TodoTable.module.scss'
+import styles from './TodoTable.module.scss';
 
 interface TodoTableProps {
     todos: Todo[];
@@ -7,7 +8,7 @@ interface TodoTableProps {
 
 const TodoTable: React.FC<TodoTableProps> = ({ todos }) => {
     return (
-        <table aria-labelledby="tableLabel">
+        <table className={styles.table} aria-labelledby="tableLabel">
             <thead>
                 <tr>
                     <th>Title</th>

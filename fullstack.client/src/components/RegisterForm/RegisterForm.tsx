@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { register } from '../../services/AuthService';
 import RegisterData from "../../types/RegisterData";
 import styles from './RegisterForm.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterForm: React.FC = () => {
     const [formData, setFormData] = useState<RegisterData>({
@@ -9,6 +10,9 @@ const RegisterForm: React.FC = () => {
         username: '',
         password: ''
     });
+
+    const navigate = useNavigate();
+
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
 
@@ -26,7 +30,7 @@ const RegisterForm: React.FC = () => {
 
         try {
             await register(formData);
-            alert('Registration successful');
+            navigate('/login');
         } catch (err) {
             setError('Registration failed');
         } finally {

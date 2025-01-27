@@ -64,7 +64,7 @@ namespace FullStack.Server.Controllers
             }
         }
 
-        [Authorize]
+        [Authorize(Roles = "user")]
         [HttpGet("Logout")]
         public void Logout()
         {

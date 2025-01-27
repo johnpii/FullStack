@@ -24,7 +24,12 @@ const Navbar: React.FC = observer(() => {
                     </>
                 )}
                 {authStore.isAuth && (
-                    <Link to="/logout" className={styles['navbar-item']}>Выход</Link>
+                    <>
+                        <span className={styles['navbar-username']}>
+                            Привет, {authStore.username}!
+                        </span>
+                        <Link to="/logout" className={styles['navbar-item']}>Выход</Link>
+                    </>
                 )}
             </div>
             <button className={styles['burger-icon']} onClick={toggleMenu}>

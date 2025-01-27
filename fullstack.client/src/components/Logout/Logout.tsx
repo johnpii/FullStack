@@ -6,16 +6,26 @@ const LogoutRedirect = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    let isMounted = true;
+  
     const handleLogout = async () => {
       try {
         await logout();
-        navigate('/');
+        if (isMounted) {
+          navigate('/');
+        }
       } catch (error) {
-        console.error('Logout failed:', error);
+        if (isMounted) {
+          navigate('/login');
+        }
       }
     };
-
+  
     handleLogout();
+  
+    return () => {
+      isMounted = false;
+    };
   }, [navigate]);
 
   return null;

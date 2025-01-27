@@ -2,12 +2,16 @@ import { useState } from 'react';
 import { login } from '../../services/AuthService';
 import LoginData from "../../types/LoginData";
 import styles from './LoginForm.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm: React.FC = () => {
     const [formData, setFormData] = useState<LoginData>({
         email: '',
         password: ''
     });
+
+    const navigate = useNavigate();
+
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
 
@@ -25,7 +29,7 @@ const LoginForm: React.FC = () => {
 
         try {
             await login(formData);
-            alert('Login successful');
+            navigate('/');
         } catch (err) {
             setError('Login failed');
         } finally {
