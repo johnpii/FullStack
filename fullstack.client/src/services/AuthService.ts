@@ -19,7 +19,6 @@ export const login = async (data: LoginData) => {
     authStore.checkAuth();
     return response.data;
   } catch (error) {
-    console.error("Error during login:", error);
     throw error;
   }
 };
@@ -30,7 +29,6 @@ export const logout = async () => {
     authStore.checkAuth();
     return response.data;
   } catch (error) {
-    console.error("Error during logout:", error);
     throw error;
   }
 };
